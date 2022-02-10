@@ -12,6 +12,6 @@ echo '' > result.log
 for host in $(gcloud compute instances list --filter="name~'cdn-prefetch*'" --format="csv[no-heading](EXTERNAL_IP)")
 do
 	echo "running on $host"
-	ssh -oStrictHostKeyChecking=no -i $KEY prefetch@$host wget $FETCH_URL 2>&1 >> result.log &
+	ssh -oStrictHostKeyChecking=no -i $KEY prefetch@$host curl $FETCH_URL -o download 2>&1 >> result.log &
 done
 echo 'done!'
