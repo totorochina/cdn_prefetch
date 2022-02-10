@@ -13,9 +13,9 @@ resources:
            #!/bin/bash
            useradd -d /home/prefetch -m -s "/bin/bash" prefetch
            ls /home/prefetch/.ssh || mkdir /home/prefetch/.ssh
-           echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/OSmBuUm2Vnup5Yy8/TMe6+/A3SzVzLU4zpAc0y4eLj3XCzccZ+O1WSyoaEaB1aZyb5VewRNqikPd6pHi7b79IvjvPZeA5WUzbB8RUYjgZAZf1FSGcPVVKQUG6qDE3Ot55tI5Ho8+UmgeNvJzwmq8olcyVcSWeCACyqMru1RZloQ09kJk3z1tM7qG09jhilwGMiyg/lFHRAwbMI7ktMorJTZSH8g4vNtuu3747u9SUtnXMPbGvEtEWeuK6V/JABDb+zjv3D0kfQEfpWeMB5uuQF7UftidWLaGy0XjqT4MiMXFlD1DCwMHfteYVG/d/oz3LlvoOBHem/LsokoOZ/43 prefetch" >> /home/prefetch/.ssh/authorized_keys
+           echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCxKI9p9melIqx5Oej2LyzGGdRyBB1pv6zZeIqvRCn2ZIboZpN84VIOfqnVnYQLJGyQQzm0EsUSIJXWEE7aEnz2AF0LTvHQzMKngnK5scJXZNos93OHBEl4e86Y0FA2jlnsFzOD84wPAzSkgBtBrHr5pnVazkG8ISyClzpsTqgDI6XJyprF1UhXUnQ5GON9QThaEcdMc3frzV0MkJ7V2xVu9p/MBnB9IvefUppTYyuYUK9so0ykWZhVbd1pl+lh7yW+9NOGoC6yXgOwfQ2yHeoG12zb7x4agRBI5pWLepVpcR2nrMuy2lg2hGd7QRq1SEjY3RHXATMeSb5x9pqAkG7VojMmH0TOuj1eTEyfmFS4WX//kFAIS1OPQcaH5cbNomCoV1vY1O/J0YLB91PQGhQO03hjXxOkEkdEwGFONI6zXMhADf76eJG/CxZSr+dm/pXFJhCglgSy+NJbUsbj4JVzsGSOhnELNms967GSPNGscYTuTrvCCBAFn2Ho0FlTEF8= prefetch" >> /home/prefetch/.ssh/authorized_keys
      networkInterfaces:
-       - network: global/networks/default
+       - network: global/networks/myvpc
          accessConfigs:
          - name: External-IP
            type: ONE_TO_ONE_NAT
@@ -29,5 +29,5 @@ resources:
           sourceImage: https://www.googleapis.com/compute/v1/projects/debian-cloud/global/images/family/debian-9
      tags:
        items:
-         - benchmark
+         - ssh-server
 {% endfor %}
